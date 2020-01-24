@@ -1,0 +1,5 @@
+obs: netbeans pra completar codigo tem que apertar ctrl +espaço
+
+obs: quando da erro sempre apertar na opção corrigir importaçoes.
+
+setExtendedState(JFrame.MAXIMIZED_BOTH); // tela maximizada.
