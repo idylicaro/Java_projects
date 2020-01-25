@@ -3,3 +3,6 @@ obs: netbeans pra completar codigo tem que apertar ctrl +espaço
 obs: quando da erro sempre apertar na opção corrigir importaçoes.
 
 setExtendedState(JFrame.MAXIMIZED_BOTH); // tela maximizada.
+
+---Menus--
+mnemonic: importante atributo que define uma tecla do teclado para acessar a opção.
