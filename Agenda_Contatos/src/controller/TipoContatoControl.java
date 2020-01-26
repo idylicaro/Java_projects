@@ -20,8 +20,11 @@ public class TipoContatoControl implements InterfaceControle{
     
     @Override
     public void salvarControle(Object... valor) {
-        //por um try catch nesse set id
-        tcm.setId((int)valor[0]);
+        if("".equals(valor[0])){
+            tcm.setId(0);
+        }else{
+            tcm.setId((int)valor[0]);
+        }
         tcm.setDescricao((String)valor[1]);
         
         
