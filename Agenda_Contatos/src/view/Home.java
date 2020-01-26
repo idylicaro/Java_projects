@@ -32,7 +32,6 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktop = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
         jmbBarraMenu = new javax.swing.JMenuBar();
         jmArquivo = new javax.swing.JMenu();
         jmCadastro = new javax.swing.JMenu();
@@ -48,30 +47,15 @@ public class Home extends javax.swing.JFrame {
         setTitle("CONLIB - Agenda de contatos");
         setResizable(false);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jDesktop.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jDesktopLayout = new javax.swing.GroupLayout(jDesktop);
         jDesktop.setLayout(jDesktopLayout);
         jDesktopLayout.setHorizontalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(jButton1)
-                .addContainerGap(524, Short.MAX_VALUE))
+            .addGap(0, 863, Short.MAX_VALUE)
         );
         jDesktopLayout.setVerticalGroup(
             jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopLayout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton1)
-                .addContainerGap(384, Short.MAX_VALUE))
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         jmArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/arquivo.png"))); // NOI18N
@@ -178,12 +162,6 @@ public class Home extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jmiTipoDeContatoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        ConexaoBanco bdC = new ConexaoBanco();
-        bdC.abreConexao();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -220,7 +198,6 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator3;
