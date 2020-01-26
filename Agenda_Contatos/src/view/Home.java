@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -30,24 +31,73 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktop = new javax.swing.JDesktopPane();
         jmbBarraMenu = new javax.swing.JMenuBar();
         jmArquivo = new javax.swing.JMenu();
-        jmiContatos = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmCadastro = new javax.swing.JMenu();
         jmiCidade = new javax.swing.JMenuItem();
         jmiBairro = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jmiTipoDeContato = new javax.swing.JMenuItem();
+        jmiContatos = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CONLIB - Agenda de contatos");
         setResizable(false);
 
+        javax.swing.GroupLayout jDesktopLayout = new javax.swing.GroupLayout(jDesktop);
+        jDesktop.setLayout(jDesktopLayout);
+        jDesktopLayout.setHorizontalGroup(
+            jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 863, Short.MAX_VALUE)
+        );
+        jDesktopLayout.setVerticalGroup(
+            jDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 562, Short.MAX_VALUE)
+        );
+
         jmArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/arquivo.png"))); // NOI18N
         jmArquivo.setMnemonic('A');
         jmArquivo.setText("Arquivo");
+
+        jmCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novo.png"))); // NOI18N
+        jmCadastro.setMnemonic('C');
+        jmCadastro.setText("Cadastro");
+
+        jmiCidade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jmiCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cidade.png"))); // NOI18N
+        jmiCidade.setText("Cidade");
+        jmiCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCidadeActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jmiCidade);
+
+        jmiBairro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jmiBairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bairro.png"))); // NOI18N
+        jmiBairro.setText("Bairro");
+        jmiBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiBairroActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jmiBairro);
+        jmCadastro.add(jSeparator3);
+
+        jmiTipoDeContato.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jmiTipoDeContato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tipo.png"))); // NOI18N
+        jmiTipoDeContato.setText("Tipo de Contato");
+        jmiTipoDeContato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiTipoDeContatoActionPerformed(evt);
+            }
+        });
+        jmCadastro.add(jmiTipoDeContato);
+
+        jmArquivo.add(jmCadastro);
 
         jmiContatos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jmiContatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contato.png"))); // NOI18N
@@ -59,28 +109,6 @@ public class Home extends javax.swing.JFrame {
         });
         jmArquivo.add(jmiContatos);
         jmArquivo.add(jSeparator1);
-
-        jmCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novo.png"))); // NOI18N
-        jmCadastro.setMnemonic('C');
-        jmCadastro.setText("Cadastro");
-
-        jmiCidade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jmiCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cidade.png"))); // NOI18N
-        jmiCidade.setText("Cidade");
-        jmCadastro.add(jmiCidade);
-
-        jmiBairro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jmiBairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bairro.png"))); // NOI18N
-        jmiBairro.setText("Bairro");
-        jmCadastro.add(jmiBairro);
-        jmCadastro.add(jSeparator3);
-
-        jmiTipoDeContato.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jmiTipoDeContato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tipo.png"))); // NOI18N
-        jmiTipoDeContato.setText("Tipo de Contato");
-        jmCadastro.add(jmiTipoDeContato);
-
-        jmArquivo.add(jmCadastro);
 
         jmbBarraMenu.add(jmArquivo);
 
@@ -95,11 +123,11 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addComponent(jDesktop)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addComponent(jDesktop)
         );
 
         pack();
@@ -108,7 +136,31 @@ public class Home extends javax.swing.JFrame {
 
     private void jmiContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiContatosActionPerformed
         // TODO add your handling code here:
+        ContatoView tela = new ContatoView("Contatos");
+        jDesktop.add(tela);
+        tela.setVisible(true);
     }//GEN-LAST:event_jmiContatosActionPerformed
+
+    private void jmiCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCidadeActionPerformed
+        // TODO add your handling code here:
+        CidadeView tela = new CidadeView("Cadastro Cidade");
+        jDesktop.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jmiCidadeActionPerformed
+
+    private void jmiBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBairroActionPerformed
+        // TODO add your handling code here:
+        BairroView tela = new BairroView("Cadastro Bairro");
+        jDesktop.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jmiBairroActionPerformed
+
+    private void jmiTipoDeContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTipoDeContatoActionPerformed
+        // TODO add your handling code here:
+        TipoContatoView tela = new TipoContatoView("Tipo De Contato");
+        jDesktop.add(tela);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jmiTipoDeContatoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +198,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu jmArquivo;

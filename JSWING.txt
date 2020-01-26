@@ -6,3 +6,13 @@ setExtendedState(JFrame.MAXIMIZED_BOTH); // tela maximizada.
 
 ---Menus--
 mnemonic: importante atributo que define uma tecla do teclado para acessar a opção.
+obs: para acessar por exemplo um mnemonic A , seriao as teclas alt+ A.
+
+trabalhando com jFrameInternalDesktop o prof ensina , instanciar uma de uma classe tipo jinternalframe
+uma tela , nela adicionar no desktop , e dps da set visible.
+
+
+setEnable(bool); //para desabilitar um botao
+
+
+obs(IMPORTANTE): para usar metodo da classe pai e importante fazer metodos abstratos.
