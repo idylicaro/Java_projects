@@ -7,16 +7,52 @@ package dao;
 
 import interfaces.InterfaceDao;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import model.TipoContatoModel;
 
 /**
  *
  * @author Dracula Castle
  */
 public class TipoContatoDao implements InterfaceDao{
+    
+    String sql;
+    PreparedStatement stm;
 
     @Override
     public void salvarDao(Object... valor) {
+        
+        TipoContatoModel tcm = (TipoContatoModel) valor[0];
+        //Descobrir se é uma inclusão ou uma alteração
+        if(tcm.getId() == 0){
+        //INCLUSAO:
+        sql = "INSERT INTO NOME_TABELA (CAMPO) VALUES (?)";
+        }else{
+        //ALTERAÇÃO
+        sql = "UPDATE NOME_TABELA SET CAMPO=? WHERE id_tipo_contato=?";
+        }
+        
+        try {
+            //Preparando e manipulando os dados
+            stm = ConexaoBanco.abreConexao().prepareStatement(sql);
+            
+            stm.setString(1,tcm.getDescricao());
+            
+            if(tcm.getId()>0){
+             stm.setInt(2,tcm.getId());   
+            }
+            
+            stm.execute();
+            
+            stm.close();
+            
+            JOptionPane.showMessageDialog(null,"Salvo!");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null,"Error: "+erro);
+        }
+        
     }
 
     @Override

@@ -5,15 +5,17 @@
  */
 package view;
 
-import dao.ConexaoBanco;
 import javax.swing.JFrame;
+import util.PosicaoFormulario;
 
 /**
  *
  * @author Dracula Castle
  */
 public class Home extends javax.swing.JFrame {
-
+    
+    PosicaoFormulario posForm = new PosicaoFormulario();
+    
     /**
      * Creates new form Home
      */
@@ -21,7 +23,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,30 +138,44 @@ public class Home extends javax.swing.JFrame {
 
     private void jmiContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiContatosActionPerformed
         // TODO add your handling code here:
-        ContatoView tela = new ContatoView("Contatos");
-        jDesktop.add(tela);
-        tela.setVisible(true);
+        //ContatoView tela = new ContatoView("Contatos");
+        //jDesktop.add(tela);
+        //tela.setVisible(true);
+        
+        ContatoView tela;
+        posForm.abrirFormulario(tela = new ContatoView("Contatos"), jDesktop);
     }//GEN-LAST:event_jmiContatosActionPerformed
 
     private void jmiCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCidadeActionPerformed
         // TODO add your handling code here:
-        CidadeView tela = new CidadeView("Cadastro Cidade");
-        jDesktop.add(tela);
-        tela.setVisible(true);
+        //CidadeView tela = new CidadeView("Cadastro Cidade");
+        //jDesktop.add(tela);
+        //tela.setVisible(true);
+        
+        CidadeView tela;
+        posForm.abrirFormulario(tela = new CidadeView("Cadastro Cidade"), jDesktop);
+        
     }//GEN-LAST:event_jmiCidadeActionPerformed
 
     private void jmiBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBairroActionPerformed
         // TODO add your handling code here:
-        BairroView tela = new BairroView("Cadastro Bairro");
-        jDesktop.add(tela);
-        tela.setVisible(true);
+        //BairroView tela = new BairroView("Cadastro Bairro");
+        //jDesktop.add(tela);
+        //tela.setVisible(true);
+        
+        BairroView tela;
+        posForm.abrirFormulario(tela = new BairroView("Cadastro Bairro") , jDesktop);
     }//GEN-LAST:event_jmiBairroActionPerformed
 
     private void jmiTipoDeContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTipoDeContatoActionPerformed
         // TODO add your handling code here:
-        TipoContatoView tela = new TipoContatoView("Cadastro de Tipo de Contato");
-        jDesktop.add(tela);
-        tela.setVisible(true);
+        //TipoContatoView tela = new TipoContatoView("Cadastro de Tipo de Contato");
+        //jDesktop.add(tela);
+        //tela.setVisible(true);
+        
+        TipoContatoView tela;
+        posForm.abrirFormulario(tela = new TipoContatoView("Cadastro de Tipo de Contato"), jDesktop);
+        
     }//GEN-LAST:event_jmiTipoDeContatoActionPerformed
 
     /**
