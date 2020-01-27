@@ -25,8 +25,10 @@ public class TipoContatoControl implements InterfaceControle{
         }else{
             tcm.setId((int)valor[0]);
         }
-        tcm.setDescricao((String)valor[1]);
         
+        tcm.setDescricao(valor[1].toString());
+        
+        System.out.println("tcm "+tcm.getDescricao());
         
         // Enviar as informação para o DAO
         tcd.salvarDao(tcm);

@@ -247,8 +247,8 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         habilitaBotoes(true);
         habilitaCampos(false);
-        limpaCampos();
         salvarVisao();
+        limpaCampos();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed

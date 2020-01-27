@@ -28,10 +28,10 @@ public class TipoContatoDao implements InterfaceDao{
         //Descobrir se é uma inclusão ou uma alteração
         if(tcm.getId() == 0){
         //INCLUSAO:
-        sql = "INSERT INTO NOME_TABELA (CAMPO) VALUES (?)";
+        sql = "INSERT INTO tiposdecontato (descricao_tipoContato) VALUES (?)";
         }else{
         //ALTERAÇÃO
-        sql = "UPDATE NOME_TABELA SET CAMPO=? WHERE id_tipo_contato=?";
+        sql = "UPDATE tiposdecontato SET descricao_tipoContato=? WHERE id_tipoContato=?";
         }
         
         try {
