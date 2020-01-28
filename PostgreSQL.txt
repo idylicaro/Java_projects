@@ -1,0 +1,23 @@
+SQL comandos e tags.
+
+
+//Criando uma table
+create table nome_tabela(
+    atributo,
+    atributo
+)
+*****
+serial
+primary key
+not null
+default
+*****
+
+
+id serial primary key,  // isso seria um id int primary key auto_increment
+descricao varchar(100) not null,
+status integer default 1, // que de inicio e iniciado com valor 1
+
+
+//insert
+insert to nome_tabela (coluna_tabela) values ('valor_passado')
