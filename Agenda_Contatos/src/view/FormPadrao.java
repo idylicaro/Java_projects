@@ -6,8 +6,16 @@
 package view;
 
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import util.Tabela;
 
 /**
  *
@@ -20,6 +28,21 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     
     abstract public void salvarVisao();
     
+    abstract public void criarTabela();
+    
+    abstract public void consultaView();
+    
+    abstract public void atualizarFormulario();
+    
+    abstract public void excluirView();
+    
+    //Atributos para criação da tabela;
+    JTable tabela;
+    DefaultTableModel modelo = new DefaultTableModel();
+    
+    // Instanciando o objeto para manipular a classe tabela do pacote util
+    Tabela utilTabela = new Tabela();
+    
     JLabel jlConsulta;
     JTextField jtfConsulta;
     
@@ -27,6 +50,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         initComponents();
         inicializarComponentes();
         habilitaBotoes(true);
+        criarTabela();
         
         jtfId.setEnabled(false);
         habilitaCampos(false);
@@ -38,8 +62,36 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jpnConsulta.add(jlConsulta);   
         // jTextField para consulta
         jtfConsulta = new JTextField();
-        jtfConsulta.setBounds(70,5,555,25);
+        jtfConsulta.setBounds(70,5,585,25);
         jpnConsulta.add(jtfConsulta);
+        
+        //EVENTO QUE VERIFICA CADA CARACTETER DIGITADO NO jtfConsulta
+        //ATUALIZANDO A TABELA COM O NOVO FILTRO
+        jtfConsulta.addKeyListener(
+                new KeyAdapter(){
+                    public void keyReleased(KeyEvent e){
+                        consultaView();
+                    }
+                }
+        );
+        
+        //ESCUTANDO O MAUSE DENTRO DA TABELA , QUANDO CLICKA EM UMA LINHA DA TABELA , SET OS VALORES NOS CAMPOS DO FORMULARIO.
+        tabela.addMouseListener(
+                new MouseAdapter(){
+                    public void mouseClicked(MouseEvent e){
+                        atualizarFormulario();
+                    }
+                }
+        );
+        
+        //EVENTO DE ESCUTA PARA AS TECLAS SETA ACIMA OU ABAIXO NA TABELA
+        tabela.addKeyListener(
+                new KeyAdapter(){
+                    public void keyReleased(KeyEvent e){
+                        atualizarFormulario();
+                    }
+                }
+        );
         
     }
 
@@ -87,6 +139,11 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/remove.png"))); // NOI18N
         jbExcluir.setMnemonic('E');
         jbExcluir.setText("Excluir");
+        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcluirActionPerformed(evt);
+            }
+        });
 
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salvar.png"))); // NOI18N
         jbSalvar.setMnemonic('S');
@@ -198,7 +255,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         );
         jpnConsultaLayout.setVerticalGroup(
             jpnConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 134, Short.MAX_VALUE)
+            .addGap(0, 164, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -249,6 +306,8 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         habilitaCampos(false);
         salvarVisao();
         limpaCampos();
+        consultaView();
+        
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
@@ -262,6 +321,18 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfIdActionPerformed
+
+    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null,"Comfirma Exclusão?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)== JOptionPane.YES_OPTION) {
+            excluirView();
+            consultaView();
+            limpaCampos();
+        }else{
+                JOptionPane.showMessageDialog(null, "Exclusão Cancelada.");
+            }
+        
+    }//GEN-LAST:event_jbExcluirActionPerformed
     // Método para habilitar e desabilitar botões de acordo com sua função no formulario.
     public void habilitaBotoes(boolean estado){
         jbNovo.setEnabled(estado);
@@ -290,7 +361,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbNovo;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JPanel jpnBotoes;
-    private javax.swing.JPanel jpnConsulta;
+    public javax.swing.JPanel jpnConsulta;
     public javax.swing.JPanel jpnFormulario;
     public javax.swing.JTextField jtfDescricao;
     public javax.swing.JTextField jtfId;

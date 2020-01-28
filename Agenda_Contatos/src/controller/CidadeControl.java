@@ -24,5 +24,10 @@ public class CidadeControl implements InterfaceControle{
     @Override
     public void carregarComboBox() {
     }
+
+    @Override
+    public void consultarControle(Object... valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

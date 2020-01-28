@@ -8,6 +8,7 @@ package view;
 import controller.BairroControl;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,6 +45,32 @@ public class BairroView extends FormPadrao{
     public void salvarVisao() {
         //inserir Comandos
         bc.salvarControle(jtfId.getText(),jtfDescricao.getText(),jcbBairro.getSelectedItem());
+    }
+
+    @Override
+    public void criarTabela() {
+        tabela = utilTabela.criarTabela(
+                jpnConsulta,
+                new Object[] {60,600},
+                new Object[] {"centro","esquerda"},
+                new Object[] {"ID","Descrição"}
+                );
+        modelo = (DefaultTableModel) tabela.getModel();
+    }
+
+    @Override
+    public void consultaView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atualizarFormulario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void excluirView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

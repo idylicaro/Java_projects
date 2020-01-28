@@ -9,7 +9,9 @@ import interfaces.InterfaceDao;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
 import model.TipoContatoModel;
 
 /**
@@ -20,6 +22,7 @@ public class TipoContatoDao implements InterfaceDao{
     
     String sql;
     PreparedStatement stm;
+    ResultSet resultado;
 
     @Override
     public void salvarDao(Object... valor) {
@@ -57,10 +60,45 @@ public class TipoContatoDao implements InterfaceDao{
 
     @Override
     public void excluirDao(int id) {
+        sql = "DELETE FROM tiposdecontato WHERE id_tipoContato= ?";
+        try {
+            //Preparando e manipulando os dados
+            stm = ConexaoBanco.abreConexao().prepareStatement(sql);
+            
+            stm.setInt(1, id);
+            stm.execute();
+            stm.close();
+            JOptionPane.showMessageDialog(null,"Registro excluido com sucesso!" );
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Ocorreu um erro ao tentar excluir o registro: " +e );
+        }
     }
 
     @Override
     public void consultarDao(Object... valor) throws SQLException {
+        DefaultTableModel tabela = (DefaultTableModel)valor[1];
+        
+        if("".equals((String)valor[0])){
+        sql = "SELECT * FROM tiposdecontato";
+        }else{
+            sql = "SELECT * FROM tiposdecontato WHERE descricao_tipoContato LIKE '%"+valor[0]+"%'";
+        }
+        
+        //Preparando e manipulando os dados
+        stm = ConexaoBanco.abreConexao().prepareStatement(sql);
+        // executa consulta e armazena em resultado
+        resultado = stm.executeQuery();
+        while(resultado.next()){
+            
+            tabela.addRow(
+                    new Object[] {
+                        resultado.getInt("id_tipoContato"),
+                        resultado.getString("descricao_tipoContato")
+                    }
+            );
+        }//fim while
+        
+        stm.close();
     }
 
     @Override
