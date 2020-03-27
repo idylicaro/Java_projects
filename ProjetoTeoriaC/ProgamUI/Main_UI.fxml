@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane fx:id="anchorID" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #002366;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProgamUI.Controller">
+   <children>
+      <TextField fx:id="fieldCarregaAFD" layoutX="32.0" layoutY="103.0" prefHeight="25.0" prefWidth="518.0" />
+      <Button fx:id="btnSPCarregarAFD" layoutX="555.0" layoutY="103.0" mnemonicParsing="false" onAction="#onActionSPCarregarAFD" text="..." />
+      <TextField fx:id="fieldSalvarAFD" layoutX="32.0" layoutY="208.0" prefHeight="25.0" prefWidth="518.0" />
+      <Button fx:id="btnSPSalvarAFD" layoutX="555.0" layoutY="208.0" mnemonicParsing="false" onAction="#onActionSPSalvarAFD" text="..." />
+      <Label layoutX="34.0" layoutY="68.0" text="Escolha um arquivo no formato .jff" textFill="WHITE" />
+      <Label layoutX="34.0" layoutY="183.0" text="Salva AFD em:" textFill="WHITE" />
+      <Label layoutX="34.0" layoutY="254.0" text="Nome do AFD gerado" textFill="WHITE" />
+      <TextField fx:id="fieldNomeAFD" layoutX="32.0" layoutY="281.0" prefHeight="25.0" prefWidth="126.0" />
+      <Button fx:id="btnGerador" layoutX="411.0" layoutY="306.0" mnemonicParsing="false" onAction="#OnMinimizar" prefHeight="61.0" prefWidth="126.0" text="Minimizar" />
+      <Label layoutX="9.0" layoutY="367.0" text="Obs: Apenas AFD's Completos" textFill="WHITE" />
+      <Label fx:id="labelSucesso" layoutX="451.0" layoutY="273.0" text="Sucesso!" textFill="#00ff44" visible="false" />
+   </children>
+</AnchorPane>
