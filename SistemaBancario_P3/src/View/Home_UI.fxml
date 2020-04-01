@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #F4F6FA;" stylesheets="@../css/BorderPane_css.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HOME_UI AQUI" wrappingWidth="86.13671875" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
