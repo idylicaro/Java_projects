@@ -1,6 +1,8 @@
 # Java_projects
 
 Alguns projetos em Java que desenvolvi para projetos da faculdade ou apenas estudar!
+- Projeto Exception
+- Projeto Minimização de AFD
 
 # Agendas Contatos
 
@@ -14,10 +16,10 @@ Foi um enorme desafio avaliativo proposto pela matéria de Teoria da computaçã
 
 Foi outro projeto proposto pela matéria de Teoria da computação com objetivo de criar uma ferramenta para minimizar um autômato finito determinístico (AFD) via arquivo .jff assim gerando outro AFD com a extensão .jff.
 
-###### contribuidores:
-  IDYL ICARO DOS SANTOS
-  CARLOS VICTOR ANDRADE DE JESUS
-  ALESSANDRO MESSIAS DE SOUZA
+###### Equipe:
+ - IDYL ICARO DOS SANTOS (@idylicaro)
+ - CARLOS VICTOR ANDRADE DE JESUS ()
+ - ALESSANDRO MESSIAS DE SOUZA ()
   
 ###### Escopo:
   Definimos autômato como um modelo matemático de máquinas, com entradas e saídas discretas, que reconhece um conjunto de palavras sobre um dado alfabeto. Um autômato pode ser finito ou infinito e determinístico ou não determinístico. Neste manual, iremos retratar sobre o autômato finito determinístico, pois é somente através dele que a ferramenta criada irá funcionar e fazer a minimização do AFD.
@@ -28,8 +30,7 @@ Foi outro projeto proposto pela matéria de Teoria da computação com objetivo 
     Tendo em vista que temos as informações suficientes sobre AF, AFD e a ferramenta desenvolvida, minimização de AFD, daremos sequência para o passo a passo, onde irá mostrar a maneira como usar o programa.
 
  ###### Recomendação:
- -Framework usado para UI: javaFx,
- -Java :jdk-10.0.2
- -Ide usada: IntelliJ IDEA
- -Cuidado com os padroes de nomes para arquivo(win pode recusar).
+ - Framework usado para UI: javaFx,
+ - Java :jdk-10.0.2
+ - Cuidado com os padroes de nomes para arquivo(win pode recusar).
   
